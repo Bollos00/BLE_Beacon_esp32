@@ -3,7 +3,6 @@
 
 #include "BLEDevice.h"
 #include "BLEUtils.h"
-#include "BLEBeacon.h"
 #include "esp_sleep.h"
 
 #include "BLE_iBeacon.h"
@@ -11,6 +10,8 @@
 #include "BeaconProprierties.h"
 
 void setBeacon(BLEAdvertising* adv) {
+
+    esp_ble_tx_power_set(ESP_BLE_PWR_TYPE_ADV, BEACON_TX_LEVEL);
 
 #if BEACON_SPEC == BEACON_USE_ALTBEACON
     BLE_AltBeacon beac = BLE_AltBeacon();
@@ -53,7 +54,7 @@ void setup() {
     setBeacon(adv);
     
     adv->start();
-    delay(100);
+    delay(BEACON_ADVERTISING_TIME_MS);
     adv->stop();
     esp_deep_sleep(1000LL * BEACON_PERIOD_MS);
 }
