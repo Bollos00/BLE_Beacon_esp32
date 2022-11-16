@@ -53,10 +53,14 @@ void setup() {
 
     setBeacon(adv);
     
+    Serial.printf("\n\n");
     adv->start();
+    Serial.printf("Will advertise for %fs\n", BEACON_ADVERTISING_TIME_MS*1e-3);
     delay(BEACON_ADVERTISING_TIME_MS);
     adv->stop();
-    esp_deep_sleep(1000LL * BEACON_PERIOD_MS);
+    Serial.printf("Will sleep for %fs\n", BEACON_DEEP_SLEEP_TIME_US*1e-6);
+    esp_deep_sleep(BEACON_DEEP_SLEEP_TIME_US);
+    Serial.printf("\n\n");
 }
 
 void loop() {
