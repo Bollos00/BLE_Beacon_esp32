@@ -1,3 +1,8 @@
 Bollos00/BLE_Beacon_esp32 <https://github.com/Bollos00/BLE_Beacon_esp32> 
 
 Copyright 2022, Bruno Bollos Correa <bollos@outlook.com.br>
+
+Portions of this software were originally based on the following:
+- https://github.com/espressif/arduino-esp32/blob/master/libraries/BLE/examples/BLE_iBeacon/BLE_iBeacon.ino
+- https://github.com/espressif/arduino-esp32/blob/master/libraries/BLE/src/BLEBeacon.h
+- https://github.com/espressif/arduino-esp32/blob/master/libraries/BLE/src/BLEBeacon.cpp
